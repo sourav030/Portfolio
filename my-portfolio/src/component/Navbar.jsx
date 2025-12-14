@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaSun, FaMoon } from 'react-icons/fa';
-
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -14,36 +11,34 @@ const Navbar = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
- 
+  // Resume Download Link
   const resumeLink = "https://drive.google.com/uc?export=download&id=13W74s-q9OaVdJU7Khi7DYb7zDGnraPTe";
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 shadow-sm transition-colors duration-300">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
-         
+          {/* 1. Logo Section */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="text-2xl font-bold text-blue-600">
-              Sourav Kum<span className="text-gray-800 dark:text-white">ar Tiwari</span>
+              Sourav Kum<span className="text-gray-800">ar Tiwari</span>
             </Link>
           </div>
 
-          
+          {/* 2. Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200"
+                className="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200"
               >
                 {link.name}
               </Link>
             ))}
             
-           
-
-            
+            {/* Resume Button */}
             <a
               href={resumeLink}
               className="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition-all shadow-md hover:shadow-lg"
@@ -52,25 +47,11 @@ const Navbar = () => {
             </a>
           </div>
 
-         
-          <div className="md:hidden flex items-center gap-4">
-            
-          
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none"
-            >
-              {theme === 'light' ? (
-                <FaMoon size={20} className="text-gray-600" />
-              ) : (
-                <FaSun size={20} className="text-yellow-400" />
-              )}
-            </button>
-
-           
+          {/* 3. Mobile Hamburger Button */}
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 focus:outline-none"
+              className="text-gray-600 hover:text-blue-600 focus:outline-none"
             >
               {isOpen ? (
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -86,21 +67,20 @@ const Navbar = () => {
         </div>
       </div>
 
-    
+      {/* 4. Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 absolute w-full shadow-lg transition-colors duration-300">
+        <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md w-full text-center"
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md w-full text-center"
               >
                 {link.name}
               </Link>
             ))}
-          
             <a
               href={resumeLink}
               className="block mt-4 px-6 py-2 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 w-fit"
