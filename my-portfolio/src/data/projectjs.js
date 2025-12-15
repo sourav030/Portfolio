@@ -14,7 +14,7 @@ export const projectData = [
     description: "A comprehensive shopping platform with Role-Based Access Control (Admin vs User). Features include secure Stripe payment gateway integration, advanced product filtering, shopping cart functionality, and order history tracking. Images are optimized and stored using Cloudinary.",
     techStack: ["React.js", "Node.js", "Express", "MongoDB", "Stripe", "Cloudinary"],
     image: ecommerceImg,
-    githubLink: "https://github.com/yourusername/ecommerce",
+    githubLink: "https://github.com/sourav030/MernEcommerce",
     liveLink: "https://your-ecommerce-link.com",
   },
   {
@@ -23,7 +23,7 @@ export const projectData = [
     description: "A recruitment platform streamlining the hiring process. Includes a robust Admin Panel for managing applications, functionality for users to apply to jobs, and an automated email notification system for application status updates.",
     techStack: ["React.js", "Node.js", "Express", "MySQL"],
     image: hireHubImg,
-    githubLink: "https://github.com/yourusername/hirehub",
+    githubLink: "https://github.com/sourav030/Hire-Hub",
     liveLink: "https://your-hirehub-link.com",
   },
   {
@@ -32,7 +32,7 @@ export const projectData = [
     description: "A real-time random video calling application. Leverages WebRTC for peer-to-peer media streaming and Socket.io for signaling, allowing users to connect instantly with strangers globally.",
     techStack: ["React.js", "Node.js", "Express", "Socket.io", "WebRTC"],
     image: omegleImg,
-    githubLink: "https://github.com/yourusername/omegle-clone",
+    githubLink: "https://github.com/sourav030/Learn-socket-and-webrtc",
     liveLink: "https://your-omegle-clone.com",
   },
   {
@@ -41,7 +41,7 @@ export const projectData = [
     description: "A seamless messaging application supporting instant text communication. Built with the MERN stack and Socket.io to ensure low-latency message delivery and persistent chat history.",
     techStack: ["React.js", "Node.js", "Express", "MongoDB", "Socket.io"],
     image: realTimeChatImg,
-    githubLink: "https://github.com/yourusername/chat-app",
+    githubLink: "https://github.com/sourav030/ChatApp",
     liveLink: "https://your-chat-app.com",
   },
   {
@@ -50,7 +50,7 @@ export const projectData = [
     description: "A niche e-commerce solution for a sweet shop. Features a custom admin dashboard for inventory management, dynamic product displays, and Cloudinary integration for high-quality food imagery.",
     techStack: ["React.js", "Node.js", "MongoDB", "Cloudinary"],
     image: sweetShopImg,
-    githubLink: "https://github.com/yourusername/sweet-shop",
+    githubLink: "https://github.com/sourav030/Incubyte-assignment",
     liveLink: "https://your-sweet-shop.com",
   },
   {
@@ -59,7 +59,7 @@ export const projectData = [
     description: "A Machine Learning project that classifies text sentiment. Utilizes Python libraries like Pandas for data manipulation and NLP techniques for text preprocessing to analyze user feedback.",
     techStack: ["Python", "Machine Learning", "Pandas", "NLP"],
     image: sentimentImg,
-    githubLink: "https://github.com/yourusername/sentiment-analysis",
+    githubLink: "https://github.com/sourav030/Sentiment-analysis/tree/main/sentiment%20analysis",
     liveLink: "#",
   },
   {
@@ -68,7 +68,7 @@ export const projectData = [
     description: "A responsive frontend interface for a food delivery service. Utilizes React Context API for efficient state management (Cart logic) and implements advanced filtering for menu categories.",
     techStack: ["React.js", "Context API", "CSS Modules"],
     image: foodDeliveryImg,
-    githubLink: "https://github.com/yourusername/food-delivery",
+    githubLink: "https://github.com/sourav030/ReactJsFoodDelivery",
     liveLink: "https://your-food-delivery.com",
   },
 ];
