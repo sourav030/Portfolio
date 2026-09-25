@@ -10,6 +10,7 @@ import foodDeliveryImg from '../assets/Food Delivery.png';
 export const projectData = [
   {
     id: 1,
+    tag: "Featured",
     title: "Full-Stack E-Commerce",
     description: "A comprehensive shopping platform with Role-Based Access Control (Admin vs User). Features include secure Stripe payment gateway integration, advanced product filtering, shopping cart functionality, and order history tracking. Images are optimized and stored using Cloudinary.",
     techStack: ["React.js", "Node.js", "Express", "MongoDB", "Stripe", "Cloudinary"],
@@ -19,9 +20,10 @@ export const projectData = [
   },
   {
     id: 2,
-    title: "HireHub - Job Portal",
-    description: "A recruitment platform streamlining the hiring process. Includes a robust Admin Panel for managing applications, functionality for users to apply to jobs, and an automated email notification system for application status updates.",
-    techStack: ["React.js", "Node.js", "Express", "MySQL"],
+    tag: "Featured",
+    title: "Job Portal with Resume Screening",
+    description: "A full-stack job portal with JWT authentication and role-based access separating admin, recruiter and candidate permissions. Features an automated resume screening pipeline that extracts candidate details and ranks applications against keyword criteria, Cloudinary resume storage and Nodemailer email notifications.",
+    techStack: ["React.js", "Node.js", "Express", "MongoDB", "JWT", "Cloudinary"],
     image: hireHubImg,
     githubLink: "https://github.com/sourav030/Hire-Hub",
     liveLink: "https://your-hirehub-link.com",

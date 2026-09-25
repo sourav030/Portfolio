@@ -1,109 +1,167 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import { SiReact, SiNodedotjs, SiMongodb, SiPython, SiNestjs } from 'react-icons/si';
-import { Link } from 'react-router-dom';
+import {
+  SiReact, SiVuedotjs, SiNodedotjs, SiExpress,
+  SiMongodb, SiPython, SiTailwindcss, SiJavascript, SiCplusplus, SiMysql,
+} from 'react-icons/si';
+import { FiArrowUpRight, FiDownload, FiGithub, FiLinkedin, FiMail, FiMapPin } from 'react-icons/fi';
+import Reveal from '../component/Reveal';
+import Profile from '../assets/Sourav Kumar Tiwari.jpg';
 
-import Profile from "../assets/Sourav Kumar Tiwari.jpg"; 
+const resumeLink = '/Sourav_Kumar_Tiwari_Resume.pdf';
+
+const stack = [
+  { icon: <SiJavascript />, name: 'JavaScript' },
+  { icon: <SiReact />, name: 'React' },
+  { icon: <SiVuedotjs />, name: 'Vue.js' },
+  { icon: <SiNodedotjs />, name: 'Node.js' },
+  { icon: <SiExpress />, name: 'Express' },
+  { icon: <SiMongodb />, name: 'MongoDB' },
+  { icon: <SiMysql />, name: 'MySQL' },
+  { icon: <SiTailwindcss />, name: 'Tailwind' },
+  { icon: <SiCplusplus />, name: 'C++' },
+  { icon: <SiPython />, name: 'Python' },
+];
 
 const Home = () => {
+  const cardRef = useRef(null);
+
+  const handleTilt = (e) => {
+    const el = cardRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = `perspective(900px) rotateY(${px * 12}deg) rotateX(${-py * 12}deg)`;
+  };
+  const resetTilt = () => {
+    if (cardRef.current) cardRef.current.style.transform = 'perspective(900px) rotateY(0) rotateX(0)';
+  };
+
   return (
-    <div 
-      id="home" 
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-black pt-16 transition-colors duration-300"
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          
-        
-          <div className="space-y-6 text-center md:text-left order-2 md:order-1">
-            
-           
-            <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 rounded-full text-sm font-semibold shadow-sm border border-transparent dark:border-blue-800">
-              🚀 Open to Work & Freelance
-            </div>
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
 
-          
-            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
-              Hi, I'm <span className="text-blue-600 dark:text-blue-500">Sourav Kumar Tiwari</span>
-            </h1>
+          {/* Left */}
+          <div className="text-center lg:text-left">
+            <Reveal>
+              <div className="chip chip-accent mx-auto lg:mx-0 mb-6">
+                <span className="pulse-dot" />
+                Available for full-time roles
+              </div>
+            </Reveal>
 
-           
-            <div className="text-2xl md:text-3xl font-semibold text-gray-600 dark:text-gray-300 min-h-[50px]">
-              <span>I am a </span>
-              <TypeAnimation
-                sequence={[
-                  'Full Stack Developer',
-                  2000,
-                  'Machine Learning Enthusiast',
-                  2000,
-                  'MERN Stack Expert',
-                  2000,
-                  'Problem Solver',
-                  2000,
-                ]}
-                wrapper="span"
-                speed={50}
-                className="text-blue-500 dark:text-blue-400"
-                repeat={Infinity}
-              />
-            </div>
+            <Reveal delay={80}>
+              <p className="eyebrow mb-4">Full Stack Developer</p>
+            </Reveal>
 
-           
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-lg mx-auto md:mx-0 leading-relaxed">
-              I build scalable web applications and intelligent AI solutions. 
-              Passionate about connecting data with beautiful user interfaces.
-            </p>
+            <Reveal delay={140}>
+              <h1 className="font-display text-5xl md:text-7xl font-extrabold leading-[1.02] mb-6">
+                Hi, I'm <br className="hidden md:block" />
+                <span className="gradient-text">Sourav Kumar Tiwari</span>
+              </h1>
+            </Reveal>
 
-        
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Link 
-                to="/projects" 
-                className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-all hover:-translate-y-1"
+            <Reveal delay={220}>
+              <div className="text-xl md:text-2xl font-medium text-[var(--muted)] h-8 mb-6">
+                <TypeAnimation
+                  sequence={[
+                    'I build with Vue.js', 1800,
+                    'I build with React', 1800,
+                    'I build REST APIs with Node.js', 1800,
+                    'I solve problems in C++', 1800,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  className="text-[var(--text)]"
+                  repeat={Infinity}
+                />
+              </div>
+            </Reveal>
+
+            <Reveal delay={300}>
+              <p className="text-[var(--muted)] text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+                Currently building production healthcare platforms at{' '}
+                <span className="text-[var(--text)] font-medium">Beet.Health</span>, designing
+                scalable REST APIs, optimizing large-dataset rendering and shipping
+                AI-driven features with LangGraph.
+              </p>
+            </Reveal>
+
+            <Reveal delay={360}>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
+                <a href="#projects" className="btn btn-primary">
+                  View my work <FiArrowUpRight />
+                </a>
+                <a href={resumeLink} download className="btn btn-ghost">
+                  <FiDownload /> Download CV
+                </a>
+              </div>
+            </Reveal>
+
+            <Reveal delay={420}>
+              <div className="flex items-center gap-3 justify-center lg:justify-start">
+                <a href="https://github.com/sourav030" target="_blank" rel="noopener noreferrer" className="icon-btn" aria-label="GitHub"><FiGithub size={19} /></a>
+                <a href="https://www.linkedin.com/in/sourav-kumar-tiwari-82762426b/" target="_blank" rel="noopener noreferrer" className="icon-btn" aria-label="LinkedIn"><FiLinkedin size={19} /></a>
+                <a href="mailto:souravtiwari139@gmail.com" className="icon-btn" aria-label="Email"><FiMail size={19} /></a>
+                <span className="ml-2 text-[var(--faint)] text-sm flex items-center gap-1.5">
+                  <FiMapPin size={14} /> Ludhiana, India
+                </span>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right - parallax profile */}
+          <Reveal delay={200} className="flex justify-center">
+            <div
+              className="relative"
+              onMouseMove={handleTilt}
+              onMouseLeave={resetTilt}
+            >
+              <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-tr from-violet-500/30 to-cyan-400/20 blur-2xl" />
+              <div
+                ref={cardRef}
+                className="relative float glass rounded-[1.75rem]! p-3 transition-transform duration-200 ease-out"
+                style={{ transformStyle: 'preserve-3d' }}
               >
-                View Projects
-              </Link>
-              <Link 
-                to="/contact" 
-                className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 font-semibold rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 transition-all"
-              >
-                Contact Me
-              </Link>
-            </div>
-
-           
-            <div className="pt-8 border-t border-gray-200 dark:border-gray-800 mt-8">
-              <p className="text-sm text-gray-500 dark:text-gray-500 mb-4 uppercase tracking-wider">Tech Stack</p>
-              <div className="flex gap-6 justify-center md:justify-start text-gray-400 dark:text-gray-500">
-                <SiReact size={32} className="hover:text-blue-500 transition-colors cursor-pointer" title="React" />
-                <SiNodedotjs size={32} className="hover:text-green-600 transition-colors cursor-pointer" title="Node.js" />
-                <SiMongodb size={32} className="hover:text-green-500 transition-colors cursor-pointer" title="MongoDB" />
-                <SiNestjs size={32} className="hover:text-red-500 transition-colors cursor-pointer" title="NestJS" />
-                <SiPython size={32} className="hover:text-yellow-500 transition-colors cursor-pointer" title="Python" />
+                <img
+                  src={Profile}
+                  alt="Sourav Kumar Tiwari"
+                  className="w-64 h-72 md:w-72 md:h-80 object-cover rounded-[1.4rem]"
+                />
+                {/* Floating badges */}
+                <div className="absolute -left-6 top-10 glass rounded-2xl! px-4 py-3 shadow-xl backdrop-blur-xl">
+                  <p className="text-2xl font-bold gradient-text font-display">900+</p>
+                  <p className="text-[11px] text-[var(--muted)]">DSA solved</p>
+                </div>
+                <div className="absolute -right-5 bottom-12 glass rounded-2xl! px-4 py-3 shadow-xl backdrop-blur-xl">
+                  <p className="text-2xl font-bold gradient-text font-display">2+</p>
+                  <p className="text-[11px] text-[var(--muted)]">Internships</p>
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
+        </div>
 
-       
-          <div className="order-1 md:order-2 flex justify-center relative">
-          
-            <div className="absolute top-0 right-0 -z-10 w-72 h-72 bg-blue-300 dark:bg-blue-900/50 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-2xl opacity-30 animate-blob"></div>
-            <div className="absolute top-0 -left-4 -z-10 w-72 h-72 bg-purple-300 dark:bg-purple-900/50 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-2xl opacity-30 animate-blob animation-delay-2000"></div>
-            
-           
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
-            
-              <img 
-                src={Profile} 
-                alt="Profile" 
-                className="w-full h-full object-cover"
-              />
+        {/* Skills marquee */}
+        <Reveal delay={200} className="mt-20">
+          <div className="marquee-track edge-fade overflow-hidden">
+            <div className="marquee gap-4 pr-4">
+              {[...stack, ...stack].map((s, i) => (
+                <span key={i} className="chip text-sm! whitespace-nowrap">
+                  <span className="text-lg text-[var(--muted)]">{s.icon}</span>
+                  {s.name}
+                </span>
+              ))}
             </div>
           </div>
-
-        </div>
+        </Reveal>
       </div>
-    </div>
+    </section>
   );
 };
 
